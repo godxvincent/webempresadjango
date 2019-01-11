@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from core import views
+
+# Django no sirve por defecto contenido estatico a menos que este en producción
+# Para hacer que funcione se puede truquear importando la libreria de
+# conenido estatico
+from django.conf import settings
+
 
 urlpatterns = [
     # Al agregar una vista se dice la url que tendrá, la vista y el nombre del recurso
@@ -28,3 +33,8 @@ urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
