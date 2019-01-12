@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Cada aplicación debe definirse en este arreglo
     'blog',
     'core',
+    'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
 ]
