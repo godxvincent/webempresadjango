@@ -7,6 +7,7 @@ class Page (models.Model):
 
     title = models.CharField(max_length=200, verbose_name='título')
     content = models.TextField(verbose_name='contenido')
+    order = models.SmallIntegerField(verbose_name='orden', default='0')
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name='Fecha creación')
     updated = models.DateTimeField(auto_now=True,
@@ -20,7 +21,7 @@ class Page (models.Model):
         verbose_name_plural = 'páginas'
         # Por defecto ordena ascendentemente, para hacerlo desce se pone
         # configuraciones antes del nombre del campo
-        ordering = ['title']
+        ordering = ['order', 'title']
 
     # Para adicionar un campo identificador en la pantalla del administrador
     # Se debe sobreescribir el metodo str

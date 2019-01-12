@@ -11,6 +11,7 @@ from .models import Page
 class PageAdmin(admin.ModelAdmin):
     # Se sobre escribe el atributo readonly_fields que es una tupla
     readonly_fields = ('created', 'updated')
+    list_display = ('title', 'order')
 
 
 # Se debe asignar al administrador la nueva configuración
