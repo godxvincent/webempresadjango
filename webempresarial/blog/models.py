@@ -37,8 +37,13 @@ class Post (models.Model):
     image = models.ImageField(verbose_name='Imagen', upload_to='blog',
                               null=True, blank=True)
     # el parametro on_delete es obligatorio de django2 en adelante
+    # Link documentación django2 sobre ForeignKey
+    # https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ForeignKey
+    # https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ForeignKey.on_delete
     author = models.ForeignKey(User, verbose_name='Autor',
                                on_delete=models.CASCADE)
+    # Link con docuentación sobre como usar las relaciones many to many
+    # https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ManyToManyField
     categories = models.ManyToManyField(Category, verbose_name='Categoria')
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name='Fecha creación')
