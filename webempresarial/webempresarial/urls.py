@@ -31,7 +31,8 @@ urlpatterns = [
     # path('contact/', views.contact, name='contact'),
     # path('about', views.about, name='about'),
     path('', include('core.urls')),
-    path('', include('services.urls')),
+    path('services/', include('services.urls')),
+    path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views as servicesViews
+from . import views
 
 urlpatterns = [
     # Al agregar una vista se dice la url que tendrá, la vista y el nombre del recurso
-    path('', servicesViews.services, name='services'),
+    path('', views.blog, name='blog')
 ]

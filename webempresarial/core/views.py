@@ -13,10 +13,6 @@ def index(request):
     return render(request, "core/index.html", {'indexNavBar': indexNavBar})
 
 
-def blog(request):
-    return render(request, "core/blog.html")
-
-
 def store(request):
     return render(request, "core/store.html")
 
