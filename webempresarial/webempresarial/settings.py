@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Cada aplicación debe definirse en este arreglo
+    'blog',
     'core',
     'services.apps.ServicesConfig'
 ]
