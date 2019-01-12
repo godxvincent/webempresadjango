@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Cada aplicación debe definirse en este arreglo
     'blog',
+    'ckeditor',
     'core',
     'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
@@ -140,3 +141,27 @@ STATIC_URL = '/static/'
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Ckeditor configuración
+# https://github.com/django-ckeditor/django-ckeditor
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         # De esta forma se le dice a CKEDITOR que muestre todas las opciones por defecto
+#         # 'toolbar': None
+#         'toolbar': 'Basic'
+#     }
+# }
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            # ['RemoveFormat', 'Source']
+        ]
+    }
+}
