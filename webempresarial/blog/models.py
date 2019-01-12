@@ -44,7 +44,10 @@ class Post (models.Model):
                                on_delete=models.CASCADE)
     # Link con docuentación sobre como usar las relaciones many to many
     # https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ManyToManyField
-    categories = models.ManyToManyField(Category, verbose_name='Categoria')
+    # related_name es un parametro para crear una función que recupere desde categorias los post
+    # https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ForeignKey.related_name
+    categories = models.ManyToManyField(
+        Category, verbose_name='Categoria', related_name='get_posts')
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name='Fecha creación')
     updated = models.DateTimeField(auto_now=True,

@@ -2,7 +2,11 @@
 
 {% load static %}
 {% block content %}
-    {%for entrada in entradas%}
+    <!--  Aqui se recibe las categorias y por la relación de las dos entidades
+    es posible indicar que recupere desde las categorias los post -->
+    <!-- entrada in category.post_set.all  el post_set es un generico para cambiar esa función se puede dar un nombre
+         especifico en el modelo de la categoria en este caso-->
+    {%for entrada in category.get_posts.all %}
         <section class="page-section cta">
           <div class="container">
             <div class="row">
@@ -21,17 +25,16 @@
                     {{entrada.content | linebreaks }}
                   </p>
                   <p class="mb-0 mbt">
-                      <span class="section-heading-under">Publicado por <em><b>{{entrada.author}}</b></em> en
-                          <em>
-                              {% for categoria in entrada.categories.all %}
-                                  <a href="{% url 'category' categoria.id %}" class="link">{{ categoria.name }}</a>
-                                  {% if not forloop.last %},{% endif %}
-                              {% endfor %}
-                          </em>
-                      </span>
+                    <span class="section-heading-under">Publicado por <em><b>{{entrada.author}}</b></em> en
+                        <em>
+                            {% for categoria in entrada.categories.all %}
+                                <a href="{% url 'category' categoria.id %}" class="link">{{ categoria.name }}</a>
+                                {% if not forloop.last %},{% endif %}
+                            {% endfor %}
+                        </em>
+                    </span>
                   </p>
                 </div>
-
               </div>
             </div>
           </div>
