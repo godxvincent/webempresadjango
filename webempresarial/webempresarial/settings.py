@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # Cada aplicación debe definirse en este arreglo
     'blog',
     'core',
-    'services.apps.ServicesConfig'
+    'services.apps.ServicesConfig',
+    'social.apps.SocialConfig',
 ]
 
 MIDDLEWARE = [
