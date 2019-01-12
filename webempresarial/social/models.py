@@ -8,7 +8,7 @@ class Link (models.Model):
     key = models.SlugField(verbose_name='Nombre clave', max_length=100, unique=True)
     name = models.CharField(max_length=200, verbose_name='Red Social')
     urlRedSocial = models.URLField(verbose_name='enlace', max_length=200, null=True, blank=True)
-    content = models.TextField(verbose_name='contenido')
+    # content = models.TextField(verbose_name='contenido')
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name='Fecha creación')
     updated = models.DateTimeField(auto_now=True,
