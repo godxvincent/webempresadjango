@@ -166,3 +166,9 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+# Configuración Servidor de correos de prueba
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '52c030ed328e9e'
+EMAIL_HOST_PASSWORD = 'd6b9ee042e0d33'
+EMAIL_PORT = '2525'
