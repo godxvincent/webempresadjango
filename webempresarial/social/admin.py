@@ -12,6 +12,13 @@ class LinkAdmin(admin.ModelAdmin):
     # Se sobre escribe el atributo readonly_fields que es una tupla
     readonly_fields = ('created', 'updated')
 
+    def get_readonly_fields(self, request, obj=None):
+        if request.user.groups.filter(name="Personal").exists():
+            return ('created', 'updated', 'key', 'name')
+        else:
+            return ('created', 'updated')
+
+
 
 # Se debe asignar al administrador la nueva configuración
 # admin.site.register(Project)
